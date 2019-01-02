@@ -1,0 +1,204 @@
+/* CSS Variables */
+:root {
+--primary: #ddd; /* light grey*/
+--dark: #333;
+--light: #fff;
+--shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+html {
+box-sizing: border-box; /* it doesnt efect the wight of the element*/
+font-family: Arial, Helvetica, sans-serif;
+color: var(--dark);
+}
+
+body {
+background: #ccc;
+margin: 30px 50px; /* top-botton left-right*/
+line-height: 1.4;
+}
+
+.btn {
+background-color: var(--dark);
+color: var(--light);
+padding: 0.6rem 1.3rem; /* more responsive*/   
+text-decoration: none;
+border: 0;
+}
+
+img {
+max-width: 100%; /* we want to the image stay within the container*/  
+}
+
+.wrapper {
+display: grid;
+grid-gap: 20px;
+}
+
+/*Navigation*/
+.main-nav ul {
+display: grid;
+grid-gap: 20px;
+padding: 0;
+list-style: none;
+grid-template-columns: repeat(4, 1fr);
+}
+.main-nav a  {
+background: var(--primary);
+display: block; 
+text-decoration: none;
+padding: 0.8rem;
+text-align: center;
+color: var(--dark);
+text-transform: uppercase;
+font-size: 0.8rem;
+box-shadow: var(--shadow);
+}
+.main-nav a:hover {
+    background: var(--dark);
+    color: var(--light);
+    transition: 0.1s;
+}
+
+/*Top Container*/
+.top-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';
+}
+
+/*Showcase*/
+.showcase {
+    grid-area: showcase;
+    min-height: 350px;
+    background: url(images/pic.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    cursor: default;
+}
+.showcase h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: #fff;
+}
+.showcase p {
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: #fff;
+}
+
+/*Top-box*/
+.top-box {
+    background: #ddd;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    cursor: default;
+}
+.top-box .price {
+    font-size: 1.2rem;
+}
+.top-box-a {
+    grid-area: top-box-a;
+}
+.top-box-b {
+    grid-area: top-box-b;
+}
+
+/*Boxes*/
+.boxes {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.box {
+    background: #ddd;
+    text-align: center;
+    padding: 1.2rem 1.7rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: 0.1s;
+}
+.box:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.8);
+}
+
+/*Info*/
+.info {
+    background: #ddd;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2.7rem;
+    cursor: default;
+}
+
+/*Portafolio*/
+.portafolio {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.portafolio img {
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+
+/*footer*/
+footer {
+    margin-top: 1.5rem;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;   
+    cursor: default;
+}
+
+/*Media Queries*/
+/*700px or less*/
+@media(max-width: 700px) {
+    .top-container {
+    grid-template-areas: 
+        'showcase showcase'
+        'top-box-a top-box-b';
+    }
+    .showcase h1 {
+    font-size: 1.5rem;
+    }
+    .main-nav ul {
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    margin-bottom: 5px;
+    }
+    .info {
+    grid-template-columns: 1fr;
+    }
+    .info .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+    }
+}
+
+/*500px or less*/
+@media(max-width: 500px) {
+    .top-container {
+    grid-template-areas: 
+        'showcase'
+        'top-box-a'
+        'top-box-b';
+    }
+}
